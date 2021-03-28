@@ -1,23 +1,19 @@
-package com.upgrad.course.demo.dto;
+package com.upgrad.course.demo.entity;
 
-import jdk.nashorn.internal.objects.annotations.Getter;
+import javax.persistence.*;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-import java.util.List;
+@Entity
+@Table(name = "customer_order", schema = "fooddelivery")
+public class CustomerOrderEntity {
 
-public class OrderDTO {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "order_id", unique = true, nullable = false)
     private int orderId;
-    @NotNull(message = "Customer Id cannot be null")
+    @Column(name = "customer_id")
     private int customerId;
+    @Column(name = "order_details")
     private String orderDetails;
-    private List<OrderItemsDTO> orderItemsDTOList;
-
-    public OrderDTO() {
-    }
 
     public int getOrderId() {
         return orderId;
@@ -43,21 +39,12 @@ public class OrderDTO {
         this.orderDetails = orderDetails;
     }
 
-    public List<OrderItemsDTO> getOrderItemsDTOList() {
-        return orderItemsDTOList;
-    }
-
-    public void setOrderItemsDTOList(List<OrderItemsDTO> orderItemsDTOList) {
-        this.orderItemsDTOList = orderItemsDTOList;
-    }
-
     @Override
     public String toString() {
-        return "OrderDTO{" +
+        return "CustomerOrderEntity{" +
                 "orderId=" + orderId +
                 ", customerId=" + customerId +
                 ", orderDetails='" + orderDetails + '\'' +
-                ", orderItemsDTOList=" + orderItemsDTOList +
                 '}';
     }
 }
