@@ -1,0 +1,75 @@
+{
+	"info": {
+		"_postman_id": "799d6f12-5086-4249-985e-44a1d070c038",
+		"name": "Order-Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Order-Api",
+			"item": [
+				{
+					"name": "Order Live",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/foodDelivery/orderApi/live",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"foodDelivery",
+								"orderApi",
+								"live"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"customerId\": 1,\n\t\"orderDetails\": \"Placing order for vegetables\",\n\t\"orderItemsDTOList\":[ \n\t\t{ \"productId\":2, \"quantity\":1 },\n\t\t{ \"productId\":4, \"quantity\":2 },\n\t\t{ \"productId\":5, \"quantity\":3 }\n\t]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/foodDelivery/orderApi/v1/order",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"foodDelivery",
+								"orderApi",
+								"v1",
+								"order"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
